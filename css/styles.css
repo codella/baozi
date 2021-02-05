@@ -1,0 +1,101 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --size: min(20vw, 20vh);
+  --resting-color: red;
+  --expanded-color: orangered;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: black;
+}
+
+#hotspot {
+  height: var(--size);
+  width: var(--size);
+  background-color: var(--resting-color);
+  border-radius: 50%;
+}
+
+#hotspot.first {
+  animation: pulsing-colors 4s infinite;
+  animation-timing-function: linear;
+}
+
+#hotspot.second {
+  animation: shake 5s infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes pulsing-colors {
+  0% {
+    background-color: red;
+    transform: scale(1);
+    border-radius: 50%;
+  }
+  25% {
+    background-color: yellow;
+    transform: scale(1.3) rotate(45deg);
+    border-radius: 30%;
+  }
+  50% {
+    background-color: blue;
+    transform: scale(2) rotate(90deg);
+    border-radius: 10%;
+  }
+  75% {
+    background-color: green;
+    transform: scale(2.2) rotate(135deg);
+    border-radius: 30%;
+  }
+  100% {
+    background-color: red;
+    transform: scale(1) rotate(180deg);
+    border-radius: 50%;
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(0, 0);
+  }
+  30% {
+    transform: translate(-100px, 30px);
+  }
+  40% {
+    transform: translate(100px, -40px);
+  }
+  45% {
+    transform: translate(-100px, 20px);
+  }
+  50% {
+    transform: translate(100px, -30px);
+  }
+  55% {
+    transform: translate(-100px, 45px);
+  }
+  60% {
+    transform: translate(100px, -10px);
+  }
+  70% {
+    transform: translate(-100px, 0);
+  }
+  80% {
+    transform: translate(100px, -70px);
+  }
+  90% {
+    transform: translate(-100px, 10px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
